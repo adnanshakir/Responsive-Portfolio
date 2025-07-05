@@ -21,7 +21,7 @@
 @font-face {
   font-family: "neue";
   src: url("NeueMachina/NeueMachina-Ultrabold.otf");
-  font-weight: 600;
+  /* font-weight: 600; */
   font-style: normal;
 }
 
@@ -34,16 +34,16 @@
 
 .page-1 {
   height: 100vh;
+  width: 100%;
   color: #e9e9e9;
   background-color: #0c0c0c;
   position: relative;
   z-index: 0;
-  /* overflow: hidden; */
 }
 
 .element {
-  width: 35vw;
-  height: 25vh;
+  width: 35%;
+  height: 25%;
   background-color: rgba(255, 235, 205, 0.834);
   position: relative;
   z-index: 5;
@@ -57,32 +57,47 @@ nav {
   display: flex;
   justify-content: space-between;
   padding: 1.5rem;
-  font-family: var(--font-family);
-  font-weight: var(--neue-light);
-  padding: 1.5rem 7vw 0.5rem 5vw;
+  /* font-family: var(--font-family);
+  font-weight: var(--neue-light); */
+  /* padding: 1.5rem 7vw 0.5rem 5vw; */
+  height: 8%;
   width: 100%;
   background-color: transparent;
   backdrop-filter: blur(10px);
-  position: absolute;
-  top: 0;
-  z-index: 10;
+}
+
+nav img{
+  display: none;
 }
 
 .option {
   display: flex;
   gap: 2.85rem;
+   font-family: var(--font-family);
+  font-weight: var(--neue-light);
 }
 
 .option a {
   text-decoration: none;
   color: #e9e9e9;
+  font-family: var(--neue-bold);
 }
 
 #wiggle {
-  font-size: 1.0625rem;
+  font-size: 1.09rem;
   font-weight: 600;
   color: #be524b;
   animation: wiggle 2s ease-in-out infinite;
+}
+
+.mobile{
+  background-color: #0c0c0c;
+  width: 100vw;
+  height: calc(100% - 8%);
+  position: absolute;
+  z-index: 9;
+  overflow:hidden;
+  display: none;
 }
 
 @keyframes wiggle {
@@ -110,22 +125,34 @@ nav {
 }
 
 .hero-section {
-  line-height: 0.975em;
   font-family: var(--font-family);
-  font-size: 3.8rem;
 }
 
-.container {
+.container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.main-text {
   text-align: center;
-}
-
-.container span {
-  font-weight: var(--neue-light);
+  font-size: 4vw;
+  line-height: 0.975em;
   display: block;
 }
 
 #intro {
-  font-size: 2.5rem;
+  /* padding-bottom: 1vh; */
+  font-size:2.2vw;
+}
+
+ #dis a{
+  text-decoration: none;
+  color:  #e9e9e9;
+  font-size: 2vw;
+  font-family: 'Times New Roman', Times, serif;
+  font-weight: 450;
 }
 
 #curiosity {
@@ -137,16 +164,30 @@ nav {
   font-weight: 600;
 }
 
-#side-text {
-  position: absolute;
-  width: 16rem;
-  font-size: 0.9rem;
+/* #side-text {
+  display: flex;
+  flex-direction: row;
+  align-items: end;
+  justify-content: flex-end;
+  display: block;
+  height: 200px;
+   width: 18em;
+  font-size: 0.9em;
   text-align: left;
   line-height: 1.2em;
+  font-weight: 300;
+} */
+ #side-text {
+  display: none;
+  position: absolute;
+  right: 0;
   bottom: 15%;
-  left: 80%;
-  z-index: 9;
-  color: white;
+  padding: 20px;
+  max-width: 320px;
+  font-size: 1vmax;
+  text-align: left;
+  font-family: var(--neue-light);
+  font-weight: 400;
 }
 
 .element-2{
@@ -169,17 +210,118 @@ nav {
 }
 
 .btn {
-  font-size: 1rem;
+  font-size: 2vmin;
   font-family: var(--neue-regular);
-  font-weight: var(--neue-bold);
   height: 2.8125rem;
-  width: 13.75rem;
+  width: 24vmin;
   border: none;
   border-radius: 62.5rem;
   background-color: rgb(250, 235, 215);
 }
 
-.btn a {
+.btn a{
   text-decoration: none;
   color: black;
+}
+
+.page-2 {
+  height: 100vh;
+  width: 100%;
+  background-color: #0c0c0c;
+   color: #e9e9e9;
+   font-family: var(--font-family);
+}
+
+.head-pg-2{
+  text-align: center;
+  font-size: 2.5rem;
+  padding: 1rem 0rem 0.5rem 3rem;
+  font-weight:100;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+  nav .option{
+    display: none;
+  }
+
+  .mobile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* transition: 0.4s; */
+  }
+
+  .mobile .option{
+    font-weight: 400;
+    flex-direction: column;
+    font-size: 3.2vh;
+    text-align: center;
+  }
+
+  nav img{
+    display:block;
+    height: 1.2rem;
+    transition: .3s;
+  }
+  .btns {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding-top: 1rem;
+}
+.btn {
+  font-size:3.2vmin;
+  width: 18vmax;
+  height: 4.2vmax;
+}
+.main-text {
+  font-size: 10vmin;
+  width: 80vw;
+}
+#intro {
+  color: #d36e66;
+  font-size:2.4vmax;
+}
+.discription{
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: 100;
+  text-decoration: none;
+}
+/* #side-text {
+  width: 18em;
+  font-size: 0.9em;
+  text-align: center;
+  line-height: 1.2em;
+  font-weight: 300;
+  width: 80vw;
+} */
+ #side-text{
+  display: none;
+ }
+ .element {
+  filter: blur(95px);
+  z-index: 9;
+}
+ .element-2 {
+  filter: blur(80px);
+  z-index: 9;
+}
+ #dis a{
+  font-size: 4.5vw;
+  font-weight: 450;
+}
 }
